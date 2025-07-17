@@ -1,0 +1,23 @@
+
+echo
+docker build -t mysql_oltp -f Dockerfile_oltp .
+
+echo 
+docker run -d \
+  --name contenedor_oltp \
+  -p 3307:3306 \
+  -v ~/oltp_data:/var/lib/mysql \
+  mysql_oltp
+
+echo 
+docker build -t mysql_olap -f Dockerfile_olap .
+
+echo 
+docker run -d \
+  --name contenedor_olap \
+  -p 3308:3306 \
+  -v ~/olap_data:/var/lib/mysql \
+  mysql_olap
+
+echo 
+docker ps
