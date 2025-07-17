@@ -1,0 +1,17 @@
+use Puebared1;
+GRANT SELECT, INSERT ON santos_olap.* TO 'usuarioprueba'@'%';
+FLUSH PRIVILEGES;
+CREATE USER 'userprueba' IDENTIFIED BY 'userprueba';
+GRANT SELECT, INSERT ON santos_pedidos.* TO 'userprueba';
+FLUSH PRIVILEGES;
+
+
+
+CREATE TABLE resumen_ventas (
+  producto VARCHAR(100),
+  total INT,
+  mes VARCHAR(10)
+);
+
+GRANT SELECT, INSERT ON santos_pedidos.* TO 'usuarioprueba'@'%';
+FLUSH PRIVILEGES;
